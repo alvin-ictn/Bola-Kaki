@@ -5,8 +5,22 @@ import 'materialize-css/dist/js/materialize.min.js';
 import DataSource from '../data/data-source.js';
 import '../component/main-container';
  
-const apps = () => {
-   
-};
 
-export default apps;
+class AppArea extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  set content(content) {
+    this._content = content;
+    this.render();
+  }
+
+  render() {
+    this.innerHTML = '';
+    const contentElement = document.createElement(`${this._content}`);
+    this.appendChild(contentElement);
+  }
+}
+
+customElements.define('app-area', AppArea);
