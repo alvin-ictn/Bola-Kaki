@@ -7,7 +7,7 @@ class DataSource {
     }
     
     // Fungsi Score Table untuk melihat perolehan score saat ini
-    ScoreTable(){
+    scoreTable(){
         if ("caches" in window) {
             caches.match(`${this.baseUrl}competitions/${this.years}/standings`)
             .then( response => {
@@ -63,7 +63,7 @@ class DataSource {
     }
 
     //Fungsi untuk melihat informasi salah satu Klub Bola
-    ClubInfo(){
+    clubInfo(){
         if("caches" in window) {
             caches.match(`${this.baseUrl}teams/${this.teamId}`).then(function(response) {
                 if (response) {
@@ -102,10 +102,5 @@ class DataSource {
         });
     }
 }
-const URL = 'http://api.football-data.org/v2/';
-const years = '2021';
-let Data = new DataSource(URL,years,82);
 
-Data.ClubInfo();
-//Data.ScoreTable()
 export default DataSource;

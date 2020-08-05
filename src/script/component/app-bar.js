@@ -7,8 +7,7 @@ class AppBar extends HTMLElement {
     
       connectedCallback() {
         this.loadNav();
-        this.sidenav();
-        this.style();
+        this.activeNav();
       }
     
       loadNav() {
@@ -27,30 +26,24 @@ class AppBar extends HTMLElement {
           </nav>
         `;
         document.querySelectorAll('ul.topnav, ul.sidenav')
-          .forEach( elm => {
-            elm.innerHTML = menu
+          .forEach(element => {
+            element.innerHTML = menu
           });
-    
+ 
         document.querySelectorAll('ul.topnav a, ul.sidenav a')
-          .forEach( elm => {
-            elm.addEventListener('click', event => {
+          .forEach(element => {
+            element.addEventListener('click', event => {
               const sideNav = document.querySelector('.sidenav');
               M.Sidenav.getInstance(sideNav).close();
-    
-              let page = event.target.getAttribute('href').substr(1);
-              console.log(page)
+              let url = event.target.getAttribute('href').substr(1);
+              console.log(url)
               const appArea = document.querySelector('app-area');
-              appArea.page = page;
-              getAll(page);
+              appArea.content = url === "score" ? "score-table" : url === "favorite" ? "saved-team" : null
             });
           });
       }
     
-      sidenav() {
-        
-      }
-    
-      style() {
+      activeNav() {
         const sideNav = document.querySelector('.sidenav');
         M.Sidenav.init(sideNav);
       }

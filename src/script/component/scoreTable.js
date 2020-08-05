@@ -27,8 +27,8 @@ class ScoreTable extends HTMLElement{
       </div>`;
   }
   //Show Score Table
-  ScoreTable(){
-      let renderHTML = `
+    ScoreTable(){
+        let renderHTML = `
 <ul id="tabs-swipe-demo" class="tabs">
   <li class="tab col s3"><a href="#total">TOTAL</a></li>
   <li class="tab col s3"><a href="#home">HOME</a></li>
@@ -57,7 +57,7 @@ class ScoreTable extends HTMLElement{
               renderHTML +=`
           <tr>
               <td>${dataLiga.position}</td>
-              <td class="team"><svg class="svgEmblem"><image xlink:href="${dataLiga.team.crestUrl}" class="imgEmblem" alt="${dataLiga.team.name} Emblem"/></svg><a href="./team.html?id=${dataLiga.team.id}">${dataLiga.team.name}</a></td>
+              <td class="team"><svg class="svgEmblem"><image xlink:href="${dataLiga.team.crestUrl}" class="imgEmblem" alt="${dataLiga.team.name} Emblem"/></svg><a class="loaded" href="#teamid=${dataLiga.team.id}">${dataLiga.team.name}</a></td>
               <td class="centered">${dataLiga.playedGames}</td>
               <td class="centered">${dataLiga.won}</td>
               <td class="centered">${dataLiga.draw}</td>
@@ -75,6 +75,14 @@ class ScoreTable extends HTMLElement{
       })
   //show data
   this.innerHTML = renderHTML;
+        document.querySelectorAll('.loaded')
+            .forEach(element => {
+                element.addEventListener('click', event => {
+                let url = event.target.getAttribute('href').substr(1);
+                const appArea = document.querySelector('app-area');
+                appArea.content = `football-club_${url.split('=')[1]}`;
+                });
+            });
   }
 }
 
