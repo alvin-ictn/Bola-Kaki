@@ -1,0 +1,100 @@
+body {
+   background: #f5f5f5 ;
+ }
+ 
+ table.highlight>tbody>tr:hover{
+   background-color:rgba(35, 20, 20, 0.1)
+ }
+ 
+ table.striped>tbody>tr:nth-child(odd){
+   background-color:rgba(35, 20, 20, 0.1)
+ }
+ 
+ .tabs {
+   background-color: transparent !important ; 
+ }
+ 
+ table  td,th {
+   padding:15px 2px;
+ }
+ 
+ table td.topicInfo {
+   font-weight:bold;
+   text-align:center;
+ }
+ 
+ table td.text-color-blue {
+   color:#0f4c75;
+ }
+ 
+ table td.text-color-red {
+   color:#e84a5f;
+ }
+ 
+ table td.text-color-green {
+   color:#24a19c;
+ }
+ 
+ table td.text-color-brown {
+   color:#ba7967;
+ }
+ 
+ table tbody tr td.team{
+   display:flex;
+ }
+ 
+ table tbody tr td.numGF {
+   color:green;
+ }
+ 
+ table tbody tr td.numGA{
+   color:red;
+ }
+ 
+ table tbody tr td.numPts{
+   font-weight: bold;
+ }
+ 
+ .container.liga{
+   margin-top:20px;
+ }
+ @media  only screen and (max-width:449px){
+   .container#body-content {
+     width:100%;
+   }
+   tr {
+     font-size: calc(100vw * 0.028125)
+   }
+   .svgEmblem, .svgEmblem .imgEmblem{
+     width:0;
+     height:0;
+   }
+ }
+ @media (min-width:450px) and (max-width: 600px) { 
+   .container#body-content {
+     width:100%;
+   }
+   .svgEmblem, .svgEmblem .imgEmblem{
+     width:0;
+     height:0;
+   }
+ }
+ 
+ @media (min-width: 601px) {
+   .svgEmblem, .svgEmblem .imgEmblem{
+     width:20px;
+     height:20px;
+     margin-right:5px;
+   }
+ 
+   td, td a {
+     vertical-align: -webkit-baseline-middle;
+   }
+ }
+ 
+ @media (min-width: 1600px) {
+   .svgEmblem, .svgEmblem .imgEmblem{
+     width:20px;
+     height:20px;
+   }
+ }
