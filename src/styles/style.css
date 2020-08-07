@@ -55,9 +55,25 @@ body {
    font-weight: bold;
  }
  
- .container.liga{
+ .container .liga{
    margin-top:20px;
  }
+
+.tabs{
+  display: -webkit-flex;
+  display:flex;
+}
+
+.tabs .tab{
+  flex-grow:1;
+}
+.preloader-wrapper.big{
+  margin-top:35vh;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+
+}   
  @media  only screen and (max-width:449px){
    .container#body-content {
      width:100%;

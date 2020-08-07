@@ -12,23 +12,23 @@ class ScoreTable extends HTMLElement{
   //preload function
   connectedCallback() {
       this.innerHTML = `
-      <div class="center-loader">
-          <div class="preloader-wrapper small active">
-              <div class="spinner-layer spinner-black-only">
-                  <div class="circle-clipper left">
-                      <div class="circle"></div>
-                  </div><div class="gap-patch">
-                      <div class="circle"></div>
-                  </div><div class="circle-clipper right">
-                      <div class="circle"></div>
-                  </div>
-              </div>
-          </div>
-      </div>`;
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-green-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>`;
   }
   //Show Score Table
     ScoreTable(){
-        let renderHTML = `
+        let renderHTML = `<div class="container">
 <ul id="tabs-swipe-demo" class="tabs">
   <li class="tab col s3"><a href="#total">TOTAL</a></li>
   <li class="tab col s3"><a href="#home">HOME</a></li>
@@ -71,6 +71,7 @@ class ScoreTable extends HTMLElement{
           renderHTML += `
       </tbody>
   </table>
+</div>
 </div>`;
       })
   //show data
