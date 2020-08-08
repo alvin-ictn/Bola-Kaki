@@ -9,6 +9,8 @@ class ClubInfo extends HTMLElement{
 		console.log(datas)
 		this._datas = datas;
 		this.ClubInfo();
+		this.floatingBt();
+		this.btAction();
 		//this.teamAction();
 	}
 
@@ -121,6 +123,8 @@ class ClubInfo extends HTMLElement{
 				</tbody>
 			</table>
 		</div>
+		<div id="floating-bt" class="row">
+              </div>
 	</div>
 </div>`
   //show data
@@ -128,7 +132,7 @@ class ClubInfo extends HTMLElement{
 	}
 	
 	floatingBt() {
-    getByIdSaved(this._data.id)
+    getByIdSaved(this._datas.id)
       .then( data => {
         const floatingBt = document.getElementById('floating-bt');
 
@@ -150,7 +154,7 @@ class ClubInfo extends HTMLElement{
   }
 
   btAction() {
-    getByIdSaved(this._data.id)
+    getByIdSaved(this._datas.id)
       .then( data => {
         if (data) {
           document.getElementById('btDelete').addEventListener('click', () => {

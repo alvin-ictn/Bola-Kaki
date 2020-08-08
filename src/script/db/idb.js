@@ -1,3 +1,4 @@
+//import { openDB, deleteDB, wrap, unwrap } from 'idb';
 import {openDB} from 'idb';
 
 const dbPromised = openDB('football-info', 1, {
@@ -16,6 +17,7 @@ function saveFavorite(team) {
       const tx = db.transaction("favorite", "readwrite");
       // Define StoreName
       const store = tx.objectStore("favorite");
+
       // Add Data 'article.result' to objectStore 'articles'
       store.add(team);
       console.log(team);

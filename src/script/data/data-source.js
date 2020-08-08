@@ -1,3 +1,5 @@
+import {getAllSaved,getByIdSaved} from '../db/idb.js';
+
 class DataSource {
     constructor(baseUrl,years,teamId){
         this.baseUrl = baseUrl;
@@ -109,6 +111,26 @@ class DataSource {
             console.error(error);
         });
     }
+
+    favorite(){
+        getAllSaved()
+          .then( team => {
+            const contentArea = document.querySelector('favorite-page');
+            contentArea.data = team;
+          })
+          .catch( err => {
+            console.log(`Error : ${err}`);
+          })
+
+          getByIdSaved(this.teamId)
+            .then( team => {
+                const contentArea = document.querySelector('teamdetail-page');
+                contentArea.data = team;
+            })
+            .catch( err => {
+                console.log(`Error : ${err}`);
+            })
+      }
 }
 
 export default DataSource;
