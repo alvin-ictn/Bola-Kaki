@@ -65,14 +65,22 @@ class DataSource {
     //Fungsi untuk melihat informasi salah satu Klub Bola
     clubInfo(){
         if("caches" in window) {
-            caches.match(`${this.baseUrl}teams/${this.teamId}`).then(function(response) {
+            caches.match(`${this.baseUrl}teams/${this.teamId}`)
+            .then( response => {
                 if (response) {
-                    response.json().then(function(data) {
-                    // Sisipkan komponen card ke dalam elemen dengan id #content
-                    return response.json()
-                    });
+                    response.json()
+                    .then(responseJson => {
+                        let clubInfo = document.querySelector('football-club');
+                        clubInfo.detailInfo = responseJson
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
                 }
-            });
+            })
+            .catch( err => {
+            console.log(`Error : ${err}`);
+            })
         }
         return fetch(`${this.baseUrl}teams/${this.teamId}`, {
             method: 'GET',

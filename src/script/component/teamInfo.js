@@ -1,3 +1,5 @@
+import {saveFavorite, getByIdSaved, deleteFavorite} from '../db/idb.js';
+
 class ClubInfo extends HTMLElement{
 	constructor() {
 		super();
@@ -123,6 +125,43 @@ class ClubInfo extends HTMLElement{
 </div>`
   //show data
   this.innerHTML = renderHTML;
+	}
+	
+	floatingBt() {
+    getByIdSaved(this._data.id)
+      .then( data => {
+        const floatingBt = document.getElementById('floating-bt');
+
+        if (data) {
+          console.log("Team sudah disimpan");
+          floatingBt.innerHTML = `
+            <a class="btn-floating btn-large waves-effect waves-light red" id="btDelete"><img src="./src/img/24/delete.svg" alt="del"></a>
+          `;
+        } else {
+          console.log("Team belom disimpan");
+          floatingBt.innerHTML = `
+            <a class="btn-floating btn-large waves-effect waves-light red" id="btAdd"><img src="./src/img/24/add.svg" alt="add"></a>
+          `;
+        }
+      })
+      .catch( err => {
+        console.log(`Error ${err}`);
+      })
+  }
+
+  btAction() {
+    getByIdSaved(this._data.id)
+      .then( data => {
+        if (data) {
+          document.getElementById('btDelete').addEventListener('click', () => {
+            deleteFavorite(this._data.id);
+          })
+        } else {
+          document.getElementById('btAdd').addEventListener('click', () => {
+            saveFavorite(this._data);
+          })
+        }
+      });
   }
 }
 
