@@ -1,9 +1,6 @@
 import '../component/scoreTable';
 import '../component/teamInfo';
-import 'materialize-css/dist/css/materialize.min.css';
-import 'materialize-css/dist/js/materialize.min.js';
-import {URL,years} from '../data/config';
-import DataSource from '../data/data-source.js';
+import '../component/favorites'
 
 
 class AppArea extends HTMLElement {
@@ -16,6 +13,7 @@ class AppArea extends HTMLElement {
     this.render();
   }
 
+  
   render() {
     this.innerHTML = '';
     try{
@@ -23,24 +21,9 @@ class AppArea extends HTMLElement {
     }catch{
       var site = this._content
     }
-    
-    if(site === "football-club"){
-      let splitvalue = this._content.split('_')
-      const contentElement = document.createElement(`${site}`);
-      this.appendChild(contentElement);
-      let Data = new DataSource(URL,years,splitvalue[1]);
-      Data.clubInfo()
-      
-    }else{
-      const contentElement = document.createElement(`${site}`);
-      this.appendChild(contentElement);
-      let Data = new DataSource(URL,years);
-      Data.scoreTable()
-    }
-    
-    
-    
-    
+    //console.log(`check this site =>>>>>> ${site}`)
+    const contentElement = document.createElement(`${site}`);
+    this.appendChild(contentElement);
   }
 }
 

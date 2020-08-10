@@ -47,6 +47,9 @@ class DataSource {
         })
         .then(tableData=>{
             let scoreTable = document.querySelector('score-table');
+            console.log(scoreTable)
+            console.log("SCORE TABLE")
+            console.log(tableData)
             scoreTable.table = tableData;
         }).then(()=>{
             let el = document.getElementById('tabs-swipe-demo');
@@ -112,10 +115,21 @@ class DataSource {
         });
     }
 
+    detailFavorite(){
+        getByIdSaved(this.teamId)
+          .then( team => {
+            const contentArea = document.querySelector('teamdetail-page');
+            contentArea.data = team;
+          })
+          .catch( err => {
+            console.log(`Error : ${err}`);
+          })
+      }
+
     favorite(){
         getAllSaved()
           .then( team => {
-            const contentArea = document.querySelector('favorite-page');
+            const contentArea = document.querySelector('saved-team');
             contentArea.data = team;
           })
           .catch( err => {

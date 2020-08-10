@@ -123,7 +123,7 @@ class ClubInfo extends HTMLElement{
 				</tbody>
 			</table>
 		</div>
-		<div id="floating-bt" class="row">
+		<div class="fixed-action-btn" id="floating-bt" class="row">
               </div>
 	</div>
 </div>`
@@ -134,6 +134,9 @@ class ClubInfo extends HTMLElement{
 	floatingBt() {
     getByIdSaved(this._datas.id)
       .then( data => {
+				console.log("bagian initial floating button")
+				console.log(this._datas.id)
+				console.log(data)
         const floatingBt = document.getElementById('floating-bt');
 
         if (data) {
@@ -156,13 +159,16 @@ class ClubInfo extends HTMLElement{
   btAction() {
     getByIdSaved(this._datas.id)
       .then( data => {
+				console.log("testclickbutton")
+        console.log(this._datas.id)
+        console.log(data)
         if (data) {
-          document.getElementById('btDelete').addEventListener('click', () => {
-            deleteFavorite(this._data.id);
+          	document.getElementById('btDelete').addEventListener('click', () => {
+            deleteFavorite(this._datas.id);
           })
         } else {
           document.getElementById('btAdd').addEventListener('click', () => {
-            saveFavorite(this._data);
+            saveFavorite(this._datas);
           })
         }
       });

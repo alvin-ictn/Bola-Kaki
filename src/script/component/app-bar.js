@@ -36,7 +36,6 @@ class AppBar extends HTMLElement {
               const sideNav = document.querySelector('.sidenav');
               M.Sidenav.getInstance(sideNav).close();
               let url = event.target.getAttribute('href').substr(1);
-              console.log(url)
               const appArea = document.querySelector('app-area');
               appArea.content = url === "score" ? "score-table" : url === "favorite" ? "saved-team" : null
             });

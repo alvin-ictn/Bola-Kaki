@@ -76,4 +76,4 @@ class FavoritePage extends HTMLElement {
   }
 }
 
-customElements.define('favorite-page', FavoritePage);
+customElements.define('saved-team', FavoritePage);
