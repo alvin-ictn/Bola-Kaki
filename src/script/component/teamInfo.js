@@ -6,7 +6,6 @@ class ClubInfo extends HTMLElement{
 	}
 
 	set detailInfo(datas) {
-		console.log(datas)
 		this._datas = datas;
 		this.ClubInfo();
 		this.floatingBt();
@@ -134,18 +133,13 @@ class ClubInfo extends HTMLElement{
 	floatingBt() {
     getByIdSaved(this._datas.id)
       .then( data => {
-				console.log("bagian initial floating button")
-				console.log(this._datas.id)
-				console.log(data)
         const floatingBt = document.getElementById('floating-bt');
 
         if (data) {
-          console.log("Team sudah disimpan");
           floatingBt.innerHTML = `
             <a class="btn-floating btn-large waves-effect waves-light red" id="btDelete"><img src="./src/img/24/delete.svg" alt="del"></a>
           `;
         } else {
-          console.log("Team belom disimpan");
           floatingBt.innerHTML = `
             <a class="btn-floating btn-large waves-effect waves-light red" id="btAdd"><img src="./src/img/24/add.svg" alt="add"></a>
           `;
@@ -159,9 +153,6 @@ class ClubInfo extends HTMLElement{
   btAction() {
     getByIdSaved(this._datas.id)
       .then( data => {
-				console.log("testclickbutton")
-        console.log(this._datas.id)
-        console.log(data)
         if (data) {
           	document.getElementById('btDelete').addEventListener('click', () => {
             deleteFavorite(this._datas.id);

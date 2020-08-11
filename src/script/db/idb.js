@@ -60,7 +60,6 @@ function getByIdSaved(id) {
       .then( db => {
         var tx = db.transaction("favorite", "readonly");
         var store = tx.objectStore("favorite");
-        console.log(`ID PADA GETBYIDSAVED ${id}`)
         //return store.get(parseInt(id));
       })
       .then( team => {

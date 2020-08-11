@@ -4,7 +4,7 @@ class ScoreTable extends HTMLElement{
   }
 
   set table(datas) {
-    console.log(datas)
+
     this._datas = datas;
     this.ScoreTable();
     //this.teamAction();

@@ -31,22 +31,19 @@ class FavoritePage extends HTMLElement {
     let page;
 
     if (this._data.length !== 0) {
-      console.log(this._data);
       page = `<div class="container">`;
       this._data.forEach( data => {
         page += `
-             
-                <div class="card horizontal">
-                  <div class="card-image" >
-                    <img src="${data.crestUrl}"/>
-                  </div>
-                  <div class="card-stacked">
-                    <div class="card-content">
-                      <a class="club-info" team-id="${data.id}" href="#teamid=${data.id}"> ${data.name} </a>
-                    </div>
-                  </div>
-                </div>
-
+          <div class="card horizontal">
+            <div class="card-image" >
+              <img src="${data.crestUrl}"/>
+            </div>
+            <div class="card-stacked">
+              <div class="card-content">
+                <a class="club-info" team-id="${data.id}" href="#teamid=${data.id}"> ${data.name} </a>
+              </div>
+            </div>
+          </div>
         `;
       });
 

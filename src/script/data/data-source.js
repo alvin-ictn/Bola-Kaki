@@ -47,9 +47,6 @@ class DataSource {
         })
         .then(tableData=>{
             let scoreTable = document.querySelector('score-table');
-            console.log(scoreTable)
-            console.log("SCORE TABLE")
-            console.log(tableData)
             scoreTable.table = tableData;
         }).then(()=>{
             let el = document.getElementById('tabs-swipe-demo');
@@ -84,7 +81,7 @@ class DataSource {
                 }
             })
             .catch( err => {
-            console.log(`Error : ${err}`);
+                console.log(`Error : ${err}`);
             })
         }
         return fetch(`${this.baseUrl}teams/${this.teamId}`, {
@@ -97,10 +94,9 @@ class DataSource {
             return response.json()
         })
         .then(function(data) {
-        // Kirim objek data hasil parsing json agar bisa disimpan ke indexed db
+            // Kirim objek data hasil parsing json agar bisa disimpan ke indexed db
 
-        // Objek JavaScript dari data.json() masuk lewat variabel data.
-            //console.log(data)
+            // Objek JavaScript dari data.json() masuk lewat variabel data.
             let clubInfo = document.querySelector('football-club');
             clubInfo.detailInfo = data
         })

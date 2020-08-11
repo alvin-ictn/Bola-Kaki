@@ -29,8 +29,6 @@ class AppBar extends HTMLElement {
           .forEach(element => {
             element.innerHTML = menu
           });
- 
-       
       }
     
       activeNav() {
