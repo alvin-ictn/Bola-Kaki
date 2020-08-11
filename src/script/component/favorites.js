@@ -35,18 +35,18 @@ class FavoritePage extends HTMLElement {
       page = `<div class="container">`;
       this._data.forEach( data => {
         page += `
-              <div class="col s12 m7">
+             
                 <div class="card horizontal">
-                  <div class="card-image" style="max-width : 5em; padding-left: 5px;">
+                  <div class="card-image" >
                     <img src="${data.crestUrl}"/>
                   </div>
                   <div class="card-stacked">
                     <div class="card-content">
-                      <a class="club-info" team-id="${data.id}"> ${data.name} </a>
+                      <a class="club-info" team-id="${data.id}" href="#teamid=${data.id}"> ${data.name} </a>
                     </div>
                   </div>
                 </div>
-              </div>
+
         `;
       });
 
@@ -65,12 +65,11 @@ class FavoritePage extends HTMLElement {
   }
 
   favoriteAction() {
-    document.querySelectorAll('.team-name').forEach( elm => {
+    document.querySelectorAll('.club-info').forEach( elm => {
       elm.addEventListener('click', event => {
-        const team = event.target.getAttribute('team-id');
-        //getId('favorite', team);
-        const appArea = document.querySelector('app-area');
-        appArea.content = 'teamdetail';
+        let url = event.target.getAttribute('href').substr(1);
+        let appArea = document.querySelector('app-area');
+        appArea.content = `football-club_${url.split('=')[1]}`;
       })
     });
   }

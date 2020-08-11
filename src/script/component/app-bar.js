@@ -30,16 +30,7 @@ class AppBar extends HTMLElement {
             element.innerHTML = menu
           });
  
-        document.querySelectorAll('ul.topnav a, ul.sidenav a')
-          .forEach(element => {
-            element.addEventListener('click', event => {
-              const sideNav = document.querySelector('.sidenav');
-              M.Sidenav.getInstance(sideNav).close();
-              let url = event.target.getAttribute('href').substr(1);
-              const appArea = document.querySelector('app-area');
-              appArea.content = url === "score" ? "score-table" : url === "favorite" ? "saved-team" : null
-            });
-          });
+       
       }
     
       activeNav() {

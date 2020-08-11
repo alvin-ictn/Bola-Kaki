@@ -21,7 +21,6 @@ class AppArea extends HTMLElement {
     }catch{
       var site = this._content
     }
-    //console.log(`check this site =>>>>>> ${site}`)
     const contentElement = document.createElement(`${site}`);
     this.appendChild(contentElement);
   }
