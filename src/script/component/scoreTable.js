@@ -57,7 +57,7 @@ class ScoreTable extends HTMLElement{
               renderHTML +=`
           <tr>
               <td>${dataLiga.position}</td>
-              <td class="team"><svg class="svgEmblem"><image xlink:href="${dataLiga.team.crestUrl}" class="imgEmblem" alt="${dataLiga.team.name} Emblem"/></svg><a class="loaded" team-id="${dataLiga.team.id}"href="#teamid=${dataLiga.team.id}">${dataLiga.team.name}</a></td>
+              <td class="team"><svg class="svgEmblem"><image xlink:href="${dataLiga.team.crestUrl}" class="imgEmblem" alt="${dataLiga.team.name} Emblem"/></svg><a class="loaded" team-id="${dataLiga.team.id}" href="#teamid=${dataLiga.team.id}">${dataLiga.team.name}</a></td>
               <td class="centered">${dataLiga.playedGames}</td>
               <td class="centered">${dataLiga.won}</td>
               <td class="centered">${dataLiga.draw}</td>
@@ -79,9 +79,9 @@ class ScoreTable extends HTMLElement{
   document.querySelectorAll('.loaded')
     .forEach(element => {
         element.addEventListener('click', event => {
-        let url = event.target.getAttribute('href').substr(1);
-        const appArea = document.querySelector('app-area');
-        appArea.content = `football-club_${url.split('=')[1]}`;
+          let url = event.target.getAttribute('href').substr(1);
+          const appArea = document.querySelector('app-area');
+          appArea.content = `football-club_${url.split('=')[1]}`;
         });
     });
   }

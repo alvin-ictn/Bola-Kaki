@@ -3,13 +3,9 @@ import {openDB} from 'idb';
 
 const dbPromised = openDB('football-info', 1, {
   upgrade(db) {
-    console.log("check the dbpromise")
-    console.log(db)
     const store = db.createObjectStore('favorite', {
       keyPath: 'id'
     });
-    console.log("test the store file")
-    console.log(store)
     store.createIndex('name', 'name', { unique: false });
   }
 });
@@ -17,22 +13,12 @@ const dbPromised = openDB('football-info', 1, {
 function saveFavorite(team) {
   dbPromised
     .then( db => {
-      console.log("this is db check")
-      console.log(db)
       // Define Transaction
       const tx = db.transaction("favorite", "readwrite");
       // Define StoreName
       const store = tx.objectStore("favorite");
-      console.log("check tx")
-      console.log(tx)
-      console.log(store)
-      console.log("test")
-      console.log(team)
       // Add Data 'article.result' to objectStore 'articles'
       store.add(team);
-      console.log("after team")
-      
-      console.log(tx.complete)
       return tx.complete;
     })
     .then( () => {
@@ -74,12 +60,10 @@ function getByIdSaved(id) {
       .then( db => {
         var tx = db.transaction("favorite", "readonly");
         var store = tx.objectStore("favorite");
-        console.log(store)
+        console.log(`ID PADA GETBYIDSAVED ${id}`)
         return store.get(parseInt(id));
       })
       .then( team => {
-        console.log("KOKG")
-        console.log(team)
         resolve(team);
       });
   });

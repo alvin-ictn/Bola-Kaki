@@ -17,7 +17,7 @@ class AppArea extends HTMLElement {
   render() {
     this.innerHTML = '';
     try{
-      var site = this._content.includes("football-club") ? this._content.split('_')[0] : this._content 
+      var site = this._content.includes("football-club") || this._content.includes("saved-team") ? this._content.split('_')[0] : this._content 
     }catch{
       var site = this._content
     }
