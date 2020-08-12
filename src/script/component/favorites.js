@@ -11,18 +11,18 @@ class FavoritePage extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-      <div class="center-loader">
-        <div class="preloader-wrapper small active">
-          <div class="spinner-layer spinner-black-only">
-            <div class="circle-clipper left">
-              <div class="circle"></div>
-            </div><div class="gap-patch">
-              <div class="circle"></div>
-            </div><div class="circle-clipper right">
-              <div class="circle"></div>
-            </div>
+      <div class="preloader-wrapper big active">
+          <div class="spinner-layer spinner-green-only">
+              <div class="circle-clipper left">
+                  <div class="circle"></div>
+              </div>
+              <div class="gap-patch">
+                  <div class="circle"></div>
+              </div>
+              <div class="circle-clipper right">
+                  <div class="circle"></div>
+              </div>
           </div>
-        </div>
       </div>
     `;
   }
@@ -52,9 +52,20 @@ class FavoritePage extends HTMLElement {
       `;
     } else {
       page = `
-        <div class="center-loader">
-          Tidak ada yang disimpan
+        <div class="preloader-wrapper big active">
+          <div class="spinner-layer spinner-red-only">
+              <div class="circle-clipper left black">
+              </div>
+              <div class="gap-patch">
+                  <div class="circle"></div>
+              </div>
+              <div class="circle-clipper right white">
+      
+              </div>
+          </div>
         </div>
+        <h3 class="center">You don't have any favorite Club</h3>
+        <h4 class="center">Pick one <a href="#score">Here</a></h4>
       `;
     }
 

@@ -138,11 +138,11 @@ class ClubInfo extends HTMLElement{
 
         if (data) {
           floatingBt.innerHTML = `
-            <a class="btn-floating btn-large waves-effect waves-light red" id="btDelete"><img src="./src/img/24/delete.svg" alt="del"></a>
+            <a class="btn-floating btn-large waves-effect waves-light blue" id="btDelete"><img src="./src/img/icon/trash.svg" alt="del"></a>
           `;
         } else {
           floatingBt.innerHTML = `
-            <a class="btn-floating btn-large waves-effect waves-light red" id="btAdd"><img src="./src/img/24/add.svg" alt="add"></a>
+            <a class="btn-floating btn-large waves-effect waves-light blue" id="btAdd"><img src="./src/img/icon/save.svg" alt="add"></a>
           `;
         }
       })

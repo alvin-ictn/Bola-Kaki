@@ -97,19 +97,30 @@ saved-team .container {
     display:flex;
     width:70px;
     height:70px;
+    justify-content:center;
 }
 
 .white-svg{
   fill:white;
   transform: scale(0.3);
 }
+
 svg image{
   overflow:auto;
 }
+
+.sidenav-trigger{
+	font-size:3vh;
+}
+
+nav .brand-logo{
+	font-size:1.8rem;
+}
+
  @media  only screen and (max-width:449px){
-   .container#body-content {
-     width:100%;
-   }
+  .container#body-content {
+    width:100%;
+  }
    tr {
      font-size: calc(100vw * 0.028125)
    }
@@ -122,6 +133,7 @@ svg image{
     width:100%;
   }
  }
+
  @media (min-width:450px) and (max-width: 600px) { 
    .container#body-content {
      width:100%;

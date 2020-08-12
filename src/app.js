@@ -4,6 +4,7 @@ import 'materialize-css/dist/js/materialize.min.js';
 import "./script/view/main.js";
 import "regenerator-runtime";
 import "./script/component/app-bar.js";
+import "./script/component/home.js";
 import {URL,years} from './script/data/config';
 import DataSource from './script/data/data-source.js';
 
@@ -30,8 +31,8 @@ window.onhashchange = () => {
     appArea.appendChild(element)
     Data.favorite()
     
-  }else if(namaHalaman.includes("12321321")){
-
+  }else {
+    appArea.appendChild(document.createElement('home-screen'));
   }
   const mainArea = document.querySelector('app-area');
   mainArea.page = namaHalaman;
@@ -55,8 +56,8 @@ document.addEventListener('DOMContentLoaded',() => {
     let Data = new DataSource(URL,years)
     appArea.appendChild(element)
     Data.favorite()
-  }else if(namaHalaman.includes("12321321")){
-
+  }else {
+    appArea.appendChild(document.createElement('home-screen'));
   }
   const mainArea = document.querySelector('app-area');
   mainArea.page = namaHalaman;
@@ -82,10 +83,11 @@ document.addEventListener('DOMContentLoaded',() => {
           let Data = new DataSource(URL,years)
           appArea.appendChild(element)
           Data.favorite()
-        }else if(namaHalaman.includes("12321321")){
-
+        }else {
+          console.log("GGs")
+          appArea.appendChild(document.createElement('home-screen'));
         }
-        appArea.content = namaHalaman === "score" ? "score-table" : namaHalaman === "favorite" ? "saved-team" : null
+        appArea.content = namaHalaman === "score" ? "score-table" : namaHalaman === "favorite" ? "saved-team" : "home-screen"
 
       });
     });
