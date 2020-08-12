@@ -9,11 +9,12 @@ class DataSource {
     }
     
     // Fungsi Score Table untuk melihat perolehan score saat ini
-    scoreTable(){
+    async scoreTable(){
         if ("caches" in window) {
             caches.match(`${this.baseUrl}competitions/${this.years}/standings`)
             .then( response => {
                 if (response) {
+                    console.log("CACHE SCORE TABLE WORK")
                     response.json()
                     .then(responseJson => {
                         return responseJson.standings;
@@ -40,6 +41,7 @@ class DataSource {
             }
         })
         .then( response => {
+            console.log("CACHE NOT  WORK")
             return response.json();
         })
         .then(responseJson => {
@@ -65,7 +67,7 @@ class DataSource {
     }
 
     //Fungsi untuk melihat informasi salah satu Klub Bola
-    clubInfo(){
+    async clubInfo(){
         if("caches" in window) {
             caches.match(`${this.baseUrl}teams/${this.teamId}`)
             .then( response => {
@@ -127,19 +129,19 @@ class DataSource {
           .then( team => {
             const contentArea = document.querySelector('saved-team');
             contentArea.data = team;
+          }).then(()=>{
+            return document.querySelectorAll('.card-image');      
+          }).then(heightData => {
+              let dataList = [];
+              heightData.forEach(element => dataList.push(element.offsetHeight));
+              return Math.max(...dataList);
+          }).then(maximumHeight=>{
+              console.log(maximumHeight)
+              document.querySelectorAll('.card.horizontal').forEach(element => element.style.height = `${maximumHeight+10}px`);
           })
           .catch( err => {
             console.log(`Error : ${err}`);
           })
-
-          getByIdSaved(this.teamId)
-            .then( team => {
-                const contentArea = document.querySelector('teamdetail-page');
-                contentArea.data = team;
-            })
-            .catch( err => {
-                console.log(`Error : ${err}`);
-            })
       }
 }
 

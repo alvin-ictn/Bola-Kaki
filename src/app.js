@@ -9,26 +9,11 @@ import DataSource from './script/data/data-source.js';
 
 
 let appArea = document.querySelector('app-area');
+
 window.onhashchange = () => { 
+  appArea.firstChild ? appArea.removeChild(appArea.firstChild) : null
   let namaHalaman = location.hash.substr(1);
-  if(namaHalaman == "score"){
-    let Data = new DataSource(URL,years);
-    Data.scoreTable()
-  }else if(namaHalaman.includes('teamid')){
-    let Data = new DataSource(URL,years,namaHalaman.split('=')[1]);
-    Data.clubInfo()
-  }else if(namaHalaman == "favorite"){
-    let Data = new DataSource(URL,years)
-    Data.favorite()
-  }else if(namaHalaman.includes("12321321")){
-
-  }
-  const mainArea = document.querySelector('app-area');
-  mainArea.page = namaHalaman;
-};
-
-document.addEventListener('DOMContentLoaded',() => {
-  let namaHalaman = location.hash.substr(1);
+  console.log(` window ${namaHalaman}`)
   if(namaHalaman == "score"){
     let element = document.createElement('score-table');
     appArea.appendChild(element)
@@ -41,8 +26,34 @@ document.addEventListener('DOMContentLoaded',() => {
     Data.clubInfo()
   }else if(namaHalaman == "favorite"){
     let element = document.createElement('saved-team');
-    appArea.appendChild(element)
     let Data = new DataSource(URL,years)
+    appArea.appendChild(element)
+    Data.favorite()
+    
+  }else if(namaHalaman.includes("12321321")){
+
+  }
+  const mainArea = document.querySelector('app-area');
+  mainArea.page = namaHalaman;
+};
+
+document.addEventListener('DOMContentLoaded',() => {
+  let namaHalaman = location.hash.substr(1);
+  console.log(` DOM ${namaHalaman}`)
+  if(namaHalaman == "score"){
+    let element = document.createElement('score-table');
+    appArea.appendChild(element)
+    let Data = new DataSource(URL,years);
+    Data.scoreTable()
+  }else if(namaHalaman.includes('teamid')){
+    let element = document.createElement('football-club');
+    appArea.appendChild(element)
+    let Data = new DataSource(URL,years,namaHalaman.split('=')[1]);
+    Data.clubInfo()
+  }else if(namaHalaman == "favorite"){
+    let element = document.createElement('saved-team');
+    let Data = new DataSource(URL,years)
+    appArea.appendChild(element)
     Data.favorite()
   }else if(namaHalaman.includes("12321321")){
 
@@ -55,9 +66,11 @@ document.addEventListener('DOMContentLoaded',() => {
  document.querySelectorAll('ul.topnav a, ul.sidenav a')
     .forEach(element => {
       element.addEventListener('click', event => {
+      
         const sideNav = document.querySelector('.sidenav');
         M.Sidenav.getInstance(sideNav).close();
         let namaHalaman = event.target.getAttribute('href').substr(1);
+          console.log(` click ${namaHalaman}`)
         if(namaHalaman == "score"){
           let Data = new DataSource(URL,years);
           Data.scoreTable()

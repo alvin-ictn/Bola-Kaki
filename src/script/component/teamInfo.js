@@ -6,6 +6,7 @@ class ClubInfo extends HTMLElement{
 	}
 
 	set detailInfo(datas) {
+
 		this._datas = datas;
 		this.ClubInfo();
 		this.floatingBt();

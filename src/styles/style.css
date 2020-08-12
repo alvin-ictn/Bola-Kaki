@@ -93,7 +93,19 @@ saved-team .container {
   justify-content: center;
 }
 
+.fixed-action-btn .btn-floating{
+    display:flex;
+    width:70px;
+    height:70px;
+}
 
+.white-svg{
+  fill:white;
+  transform: scale(0.3);
+}
+svg image{
+  overflow:auto;
+}
  @media  only screen and (max-width:449px){
    .container#body-content {
      width:100%;
