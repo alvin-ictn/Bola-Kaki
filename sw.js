@@ -1,23 +1,12 @@
 const CACHE_NAME = "footballleague-v1";
 var urlsToCache = [
   "/",
-  "/src/index.html",
-  "/src/manifest.json",
-  "/src/app.js",
+  "/index.html",
+  "/manifest.json",
+  "/bundle.js",
   "/src/img/banner/banner.png",
   "/src/img/icon/save.svg",
   "/src/img/icon/trash.svg",
-  "/src/script/component/app-bar.js",
-  "/src/script/component/favorites.js",
-  "/src/script/component/home.js",
-  "/src/script/component/menu.js",
-  "/src/script/component/scoreTable.js",
-  "/src/script/component/teamInfo.js",
-  "/src/script/data/config.js",
-  "/src/script/data/data-source.js",
-  "/src/script/db/idb.js",
-  "/src/script/view/main.js",
-  "/src/styles/style.css"
 ];
 
 self.addEventListener("install", function(event) {
