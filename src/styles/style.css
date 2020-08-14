@@ -114,7 +114,7 @@ svg image{
 }
 
 nav .brand-logo{
-	font-size:1.8rem;
+	font-size:calc(1.2rem + 0.8vw);
 }
 
  @media  only screen and (max-width:449px){

@@ -14,7 +14,7 @@ class AppBar extends HTMLElement {
         this.innerHTML = `
           <!-- Navigasi -->
           <nav class="blue" role="navigation">
-            <div class="nav-wrapper">
+            <div class="nav-wrapper container">
               <a href="#" class="brand-logo"> Premiere League </a>
               <a href="#" class="sidenav-trigger" data-target="nav-mobile"> &#9776; </a>
     

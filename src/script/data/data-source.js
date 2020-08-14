@@ -136,8 +136,8 @@ class DataSource {
               heightData.forEach(element => dataList.push(element.offsetHeight));
               return Math.max(...dataList);
           }).then(maximumHeight=>{
-              console.log(maximumHeight)
-              document.querySelectorAll('.card.horizontal').forEach(element => element.style.height = `${maximumHeight+10}px`);
+              //console.log(maximumHeight)
+              document.querySelectorAll('.card.horizontal').forEach(element => maximumHeight != 0 ? element.style.height = `${maximumHeight+10}px` : null );
           })
           .catch( err => {
             console.log(`Error : ${err}`);

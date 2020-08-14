@@ -2,8 +2,6 @@ const CACHE_NAME = "footballleague-v1";
 var urlsToCache = [
   "/",
   "/src/index.html",
-  "/bundle.js",
-  "/index.html",
   "/src/manifest.json",
   "/src/app.js",
   "/src/img/banner/banner.png",

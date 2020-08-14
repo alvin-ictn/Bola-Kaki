@@ -39,6 +39,11 @@ module.exports = {
                     to: 'src/img',
                     toType: 'dir',
                 },
+                {
+                    from: 'sw.js',
+                    to: 'service-worker.js',
+                    toType: 'file',
+                },
             ]
         })
    ]
