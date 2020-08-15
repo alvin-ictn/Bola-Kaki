@@ -1,4 +1,3 @@
-//import { openDB, deleteDB, wrap, unwrap } from 'idb';
 import {openDB} from 'idb';
 
 const dbPromised = openDB('football-info', 1, {
