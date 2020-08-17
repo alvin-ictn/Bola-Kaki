@@ -44,6 +44,11 @@ module.exports = {
                     to: 'service-worker.js',
                     toType: 'file',
                 },
+                {
+                    from: './src/manifest.json',
+                    to: 'manifest.json',
+                    toType: 'file',
+                },
             ]
         })
    ]

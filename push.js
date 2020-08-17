@@ -1,29 +1,30 @@
-var webPush = require('web-push');
+const webPush = require('web-push');
  
 const vapidKeys = {
-   "publicKey": "BFJ2emNaRSLchNFpiF4OFvOiTif9zALm3ZHZBXQCXBEAAf_g8DuPQhVv_sezheayblKtFYeohed7q0LBzlNYxmc",
-   "privateKey": "IdyxrBEMCnz7B-d_BuNqayB-s8gL_MTo98x0efG0PgQ"
+   "publicKey":"BNVpdLTL8EK9Kl5n7F7oYHQPKlTLJU6l8mbw7vJcTP_23a37GSj-tPu5NBCVNMHvla7i7DEkzhR53xov4UFmbuY","privateKey":"9cki7GOUiRf77UNNUf4XNphks4cdwWXp9fkaYpt4s-g"
 };
- 
- 
+
 webPush.setVapidDetails(
-   'mailto:alvin@univrab.ac.id',
+   'mailto:alvin.ictn@gmail.com',
    vapidKeys.publicKey,
    vapidKeys.privateKey
 )
-var pushSubscription = {
-   "endpoint": "https://fcm.googleapis.com/fcm/send/ciOcfSkfC3I:APA91bGLiVKRdZDiewk74Vt_9aPpqCPremL8gLNMvydkTS05vTn9RiYc13UQ886pAI0vwMSfy1HNUtWsYh_tkiWYzvnL0zytGvM-RiOZi_jXSxJ2c_o5YQNps6FfA7MpryoUQoaUKnPb",
+
+const pushSubscription = {
+   "endpoint": "https://fcm.googleapis.com/fcm/send/eqAFxJbOKkc:APA91bEEPKFfW0bDNEs7Op-xLfCxmi91yE60Nuy9WZYo59s40pQ3YF1PuQzp2mVPaX4f-KgdDj78jJbOGN4fwyYDAN6GyNOeD_GOK92L3xg30CxH5XGOZnfakE8NaEmimaZ4T_eKN45t",
    "keys": {
-       "p256dh": "BAziXLzWtGRPLPz82E+eC+FRt/Ms5KXgxyVUu1ngLGPAypyx2DH6HBU5iDuKFPvLIsCRmUC13wLQ3DbPBawj7C0=",
-       "auth": "8zAuuUy3zLDmr9GtP3iCBQ=="
+       "p256dh": "BC/OIClOR1fipN+ml6yquDBPDlohK5AVxBZMeBmBX6jUtO73GTbYAzinf8YAXRol/0yrqqkZ/Di9tLMDe1CzO9g=",
+       "auth": "Uwh08QT3VtTbQATNUaEpfw=="
    }
 };
-var payload = 'GGWP GUY';
+
+let payload = 'Yuk Lihat Perolehan Score masing - masing club!';
  
-var options = {
-   gcmAPIKey: '657917090225',
+const options = {
+   gcmAPIKey: '542495690503',
    TTL: 60
 };
+
 webPush.sendNotification(
    pushSubscription,
    payload,

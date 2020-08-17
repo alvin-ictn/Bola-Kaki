@@ -8,9 +8,35 @@ function registerService(){
 				console.log('Registrasi service worker berhasil.');
 				return registration;
 			})
-			.then(registration => {
-				console.log(registration);
-				notifikasi(registration);
+			.then(reg => {
+				console.log(reg)
+				let serviceWorker;
+				if (reg.installing) {
+					serviceWorker = reg.installing;
+					// console.log('Service worker installing');
+				} else if (reg.waiting) {
+					serviceWorker = reg.waiting;
+					// console.log('Service worker installed & waiting');
+				} else if (reg.active) {
+					serviceWorker = reg.active;
+					// console.log('Service worker active');
+				}
+
+				if (serviceWorker) {
+					console.log("sw current state", serviceWorker.state);
+					if (serviceWorker.state == "activated") {
+						//If push subscription wasnt done yet have to do here
+						console.log("sw already activated - Do watever needed here");
+					}
+					serviceWorker.addEventListener("statechange", function(e) {
+						console.log("sw statechange : ", e.target.state);
+						if (e.target.state == "activated") {
+							// use pushManger for subscribing here.
+							console.log("Just now activated. now we can subscribe for push notification")
+							notifikasi(reg);
+						}
+					});
+				}
 			})
 			.catch(function (err) {
 				console.error('Registrasi service worker gagal.', err);
@@ -47,7 +73,7 @@ function notifikasi(reg) {
 			if ('PushManager' in window) {
 				reg.pushManager.subscribe({
 					userVisibleOnly: true,
-					applicationServerKey: urlBase64ToUint8Array('BFJ2emNaRSLchNFpiF4OFvOiTif9zALm3ZHZBXQCXBEAAf_g8DuPQhVv_sezheayblKtFYeohed7q0LBzlNYxmc')
+					applicationServerKey: urlBase64ToUint8Array('BNVpdLTL8EK9Kl5n7F7oYHQPKlTLJU6l8mbw7vJcTP_23a37GSj-tPu5NBCVNMHvla7i7DEkzhR53xov4UFmbuY')
 				})
 				.then(subs => {
 					console.log('Berhasil melakukan subscribe dengan');

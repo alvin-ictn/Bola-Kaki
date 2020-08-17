@@ -14,7 +14,6 @@ class DataSource {
             caches.match(`${this.baseUrl}competitions/${this.years}/standings`)
             .then( response => {
                 if (response) {
-                    console.log("CACHE SCORE TABLE WORK")
                     response.json()
                     .then(responseJson => {
                         return responseJson.standings;
@@ -41,7 +40,6 @@ class DataSource {
             }
         })
         .then( response => {
-            console.log("CACHE NOT  WORK")
             return response.json();
         })
         .then(responseJson => {
